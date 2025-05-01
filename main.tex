@@ -1,0 +1,211 @@
+\documentclass{beamer}
+\usetheme{Madrid}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\title[Métodos EDO 1\textsuperscript{er} orden]{Métodos de Solución para EDOs de Primer Orden}
+\subtitle{Curso: Ecuaciones Diferenciales}
+\author{Jose Machaca \and Luis Ramos \and Sebastián Mendoza \and Edilson Mamani \and Giomar Muñoz}
+\date{25 de abril de 2025}
+\titlegraphic{\includegraphics[height=2.0cm]{unsa.png}}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Contenido}
+  \tableofcontents
+\end{frame}
+
+\section{¿Qué es una Ecuación Diferencial?}
+\begin{frame}{¿Qué es una Ecuación Diferencial?}
+Una ecuación diferencial es una ecuación que relaciona una función desconocida con sus derivadas. Estas ecuaciones son fundamentales para modelar fenómenos en física, biología, economía, entre otros.
+\end{frame}
+
+\section{Terminología Básica en Ecuaciones Diferenciales}
+\begin{frame}{Terminología Básica}
+Algunos conceptos clave:
+\begin{itemize}
+  \item \textbf{Orden}: El orden de la derivada más alta en la ecuación.
+  \item \textbf{Linealidad}: Si la función y sus derivadas aparecen linealmente.
+  \item \textbf{Solución general y particular}.
+\end{itemize}
+\end{frame}
+
+\section{Problemas de Valor Inicial (PVI)}
+\begin{frame}{Problemas de Valor Inicial}
+Un problema de valor inicial consiste en una ecuación diferencial acompañada de una condición inicial: $y(x_0) = y_0$. Su propósito es encontrar una única solución que satisfaga dicha condición.
+\end{frame}
+
+\section[Métodos de Solución]{\texorpdfstring{\hyperlink{metodos}{Métodos de Solución para EDOs de Primer Orden}}{}}
+\begin{frame}[label=metodos]{Métodos de Solución para EDOs de Primer Orden}
+A continuación, se presentan varios métodos para resolver ecuaciones diferenciales ordinarias (EDO) de primer orden:
+\begin{itemize}
+  \item Separación de variables
+  \item Integración directa
+  \item Método gráfico (campo direccional)
+  \item Factor integrante
+  \item Ecuaciones exactas
+\end{itemize}
+\end{frame}
+
+
+\section*{Separación de variables}
+\begin{frame}{Separación de variables: Introducción}
+Ecuaciones diferenciales de primer orden de la forma $y' = f(x)\,g(y)$ se dicen \emph{separables}. Esto significa que la ecuación se puede escribir de forma que todas las expresiones que involucran $y$ queden en un lado de la ecuación y las que involucran $x$ en el otro. La solución se obtiene integrando cada lado.
+\end{frame}
+
+\begin{frame}{Separación de variables: Procedimiento}
+Para resolver por separación de variables:
+\begin{enumerate}
+  \item Escribir la ecuación en forma separable: $\displaystyle \frac{dy}{dx} = f(x) g(y)$.
+  \item Separar variables: $\displaystyle \frac{dy}{g(y)} = f(x)\,dx$.
+  \item Integrar ambos lados: $\displaystyle \int \frac{dy}{g(y)} = \int f(x)\,dx + C$.
+  \item Incorporar la constante de integración $C$.
+  \item (Opcional) Despejar $y$ en función de $x$ para obtener la solución explícita.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Separación de variables: Ejemplo resuelto}
+\textbf{Ejemplo:} Resolver $\displaystyle\frac{dy}{dx} = x\,y$.
+
+Separando variables: $\displaystyle \frac{1}{y}\,dy = x\,dx$. Integrando:
+\[
+\int \frac{1}{y}\,dy = \int x\,dx \quad\Longrightarrow\quad \ln|y| = \frac{x^2}{2} + C.
+\]
+Por lo tanto, la solución general es $y = C' e^{x^2/2}$ donde $C' = e^C$.
+\end{frame}
+
+\section*{Integración directa}
+\begin{frame}{Integración directa: Introducción}
+En algunos casos la ecuación diferencial de primer orden se presenta como
+\[
+\frac{dy}{dx} = f(x),
+\]
+donde la derivada de $y$ depende solamente de la variable independiente $x$. Este tipo de ecuación se resuelve integrando directamente la función $f(x)$ respecto a $x$.
+\end{frame}
+
+\begin{frame}{Integración directa: Procedimiento}
+Para resolver por integración directa:
+\begin{enumerate}
+  \item Verificar que la ecuación está en la forma $\displaystyle \frac{dy}{dx} = f(x)$.
+  \item Integrar ambos lados con respecto a $x$: $y(x) = \displaystyle \int f(x)\,dx + C$.
+  \item Incluir la constante de integración $C$.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Integración directa: Ejemplo resuelto}
+\textbf{Ejemplo:} Resolver $\displaystyle\frac{dy}{dx} = 2x$.
+
+Integramos: $y = \int 2x\,dx + C = x^2 + C$. La solución general es $y = x^2 + C$.
+\end{frame}
+
+\section*{Método gráfico (campo direccional)}
+\begin{frame}{Método gráfico: Introducción}
+El método del campo direccional consiste en dibujar en el plano $(x,y)$ pequeños segmentos de recta cuya pendiente en cada punto $(x,y)$ es $y'=f(x,y)$. Estos segmentos aproximan la pendiente de la solución en ese punto. A partir del campo de pendientes, se puede esbozar la curva solución ajustando una trayectoria que siga los segmentos de manera continua.
+\end{frame}
+
+\begin{frame}{Método gráfico: Procedimiento}
+Pasos para construir un campo direccional:
+\begin{enumerate}
+  \item Para una selección de puntos $(x,y)$ en el plano, calcular la pendiente $m = f(x,y)$.
+  \item Dibujar en cada punto un pequeño segmento con pendiente $m$.
+  \item Para una condición inicial dada $(x_0,y_0)$, trazar una curva que pase por ese punto y siga la dirección de los segmentos dibujados.
+\end{enumerate}
+Este método permite visualizar las soluciones aunque no siempre proporciona una expresión analítica.
+\end{frame}
+
+\begin{frame}{Método gráfico: Ejemplo ilustrativo}
+\textbf{Ejemplo ilustrativo:} Considere la ecuación $y' = x - y$. En $(0,0)$ la pendiente es $0-0=0$; en $(1,0)$ es $1-0=1$; en $(0,1)$ es $0-1=-1$, etc. Al dibujar los segmentos correspondientes, se obtiene un campo que orienta las curvas solución. (Aquí no se presenta un cálculo explícito, sino la idea del método).
+\end{frame}
+
+\section*{Factor integrante}
+\begin{frame}{Factor integrante: Introducción}
+Se aplica a ecuaciones diferenciales de primer orden lineales en la forma
+\[
+\frac{dy}{dx} + P(x)y = Q(x).
+\]
+El objetivo es encontrar un \emph{factor integrante} $\mu(x)$ tal que al multiplicar la ecuación por $\mu(x)$, ésta se vuelva exacta (o directamente integrable).
+\end{frame}
+
+\begin{frame}{Factor integrante: Procedimiento}
+Para resolver con factor integrante:
+\begin{enumerate}
+  \item Identificar $P(x)$ en la ecuación $y' + P(x)y = Q(x)$.
+  \item Calcular el factor integrante: $\mu(x) = \exp\left(\int P(x)\,dx\right)$.
+  \item Multiplicar toda la ecuación original por $\mu(x)$.
+  \item El lado izquierdo se convierte en la derivada de $\mu(x)y$: $\frac{d}{dx}[\mu(x)y] = \mu(x)Q(x)$.
+  \item Integrar ambos lados con respecto a $x$: $\mu(x)y = \int \mu(x)Q(x)\,dx + C$.
+  \item Despejar $y$ para obtener la solución general.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Factor integrante: Ejemplo resuelto}
+\textbf{Ejemplo:} Resolver $\displaystyle\frac{dy}{dx} + y = e^x$.
+
+Aquí $P(x)=1$, así que $\mu(x) = e^{\int 1\,dx} = e^x$. Multiplicando:
+\[
+e^x \frac{dy}{dx} + e^x y = e^x \cdot e^x \quad\Longrightarrow\quad \frac{d}{dx}(e^x y) = e^{2x}.
+\]
+Integrando: $e^x y = \int e^{2x} dx + C = \frac{e^{2x}}{2} + C$. Entonces la solución es
+\[
+y = \frac{e^x}{2} + Ce^{-x}.
+\]
+\end{frame}
+
+\section*{Ecuaciones exactas}
+\begin{frame}{Ecuaciones exactas: Introducción}
+Una ecuación de la forma
+\[
+M(x,y)\,dx + N(x,y)\,dy = 0
+\]
+se dice \emph{exacta} si existe una función $\Phi(x,y)$ tal que $d\Phi = M\,dx + N\,dy$. Esto ocurre cuando $\frac{\partial M}{\partial y} = \frac{\partial N}{\partial x}$. La solución general se da por $\Phi(x,y) = C$.
+\end{frame}
+
+\begin{frame}{Ecuaciones exactas: Procedimiento}
+Para resolver una ecuación exacta:
+\begin{enumerate}
+  \item Verificar si es exacta: comprobar $\partial M/\partial y = \partial N/\partial x$.
+  \item Si es exacta, integrar $M(x,y)$ con respecto a $x$: $\Phi(x,y) = \int M(x,y)\,dx + h(y)$.
+  \item Derivar $\Phi$ obtenido con respecto a $y$ y compararlo con $N(x,y)$ para encontrar $h'(y)$.
+  \item Integrar $h'(y)$ para hallar $h(y)$.
+  \item La solución implícita general es $\Phi(x,y) = C$.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Ecuaciones exactas: Ejemplo resuelto}
+\textbf{Ejemplo:} Resolver $(2xy + 3)\,dx + (x^2 + 4y)\,dy = 0$.
+
+Aquí $M=2xy+3$ y $N=x^2+4y$. Comprobamos exactitud: $\partial M/\partial y = 2x$, $\partial N/\partial x = 2x$, son iguales. Entonces existe $\Phi$ tal que
+\[
+\Phi(x,y) = \int (2xy+3)\,dx = x^2y + 3x + g(y).
+\]
+Derivando con respecto a $y$: $\partial \Phi/\partial y = x^2 + g'(y)$. Debe coincidir con $N = x^2 + 4y$, por lo que $g'(y) = 4y$, de donde $g(y) = 2y^2$. Entonces $\Phi(x,y) = x^2y + 3x + 2y^2$, y la solución implícita es
+\[
+x^2 y + 2y^2 + 3x = C.
+\]
+\end{frame}
+
+\section{Ecuaciones Autónomas}
+\begin{frame}{Ecuaciones Autónomas}
+Una ecuación diferencial es autónoma si la variable independiente no aparece explícitamente, es decir, tiene la forma $y' = f(y)$. Se pueden analizar con diagramas de fases para entender el comportamiento cualitativo de las soluciones.
+\end{frame}
+
+\section{Conclusión}
+\begin{frame}{Conclusión}
+Las ecuaciones diferenciales de primer orden pueden resolverse por diversos métodos dependiendo de su forma. Entender estos métodos permite modelar y analizar sistemas dinámicos en múltiples disciplinas.
+\end{frame}
+
+\section{Bibliografía}
+\begin{frame}[allowframebreaks]{Referencias}
+\bibliographystyle{apalike}
+\bibliography{referencias}
+\end{frame}
+
+\end{document}
